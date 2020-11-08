@@ -1,24 +1,15 @@
-import printMe from './print.js';
-
 import './style.css';
 
-  function component() {
-    const element = document.createElement('div');
+// Sub Components
+import Header from './components/Header.js';
 
-   const btn = document.createElement('button');
+function App() {
+  const root = document.createElement('div');
+  const header = Header(); 
 
-    element.innerHTML = "Hello Dawg.";
+  // Append all the children.
+  root.appendChild(header);
+  return root;
+}
 
-   btn.innerHTML = 'Click me and check the console!';
-
-   btn.onclick = printMe;
-
-   btn.classList.add('hello');
-
-
-   element.appendChild(btn);
-
-    return element;
-  }
-
-  document.body.appendChild(component());
+document.body.appendChild(App());

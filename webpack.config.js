@@ -8,8 +8,6 @@ module.exports = {
     mode: 'development',
     entry: {
         app: './src/index.js',
-        print: './src/print.js',
-   
       },
        output: {
         filename: '[name].bundle.js',
@@ -27,7 +25,7 @@ module.exports = {
             chunkFilename: '[id].css',
         }),
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'Julian Vila',
           }),
     ],
     module: {

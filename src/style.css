@@ -1,4 +1,12 @@
-.hello {
-    color: blue;
-    font-size: 32px;
+/**
+ Light gray: #a9a9a9
+
+ Medium gray: #555555
+
+ Dark gray: #111111
+*/
+html, body {
+    margin: 0; 
+    padding: 0;
+    height: 100%;
 }
