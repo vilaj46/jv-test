@@ -1,22 +1,27 @@
 const path = require("path");
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 module.exports = {
-    mode: 'development',
+    mode: 'development',    
     entry: {
         app: './src/index.js',
       },
        output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: ASSET_PATH,
        },
        devtool: 'inline-source-map',
        devServer: {
         contentBase: './dist',
-        port: '3000'
+        port: '3000',
+        publicPath: '',
       },
     plugins: [
         new CleanWebpackPlugin(),
@@ -27,6 +32,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Julian Vila',
           }),
+          new webpack.DefinePlugin({
+            'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+          }),
     ],
     module: {
         rules: [
@@ -35,7 +43,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader, 
                     'css-loader',
-                ]
+                ],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -50,7 +58,7 @@ module.exports = {
                   'file-loader',
                 ],
             },
-        ]
+        ],
     },
     optimization: {
         minimizer: [

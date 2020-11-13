@@ -1,0 +1,11 @@
+.body {
+    height: 100%;
+    background-color: #fbfbfb;
+    width: 90%;
+    border: 2px solid red;
+    text-align: center;
+}
+
+.bodyTitle {
+    display: inline-block;
+}

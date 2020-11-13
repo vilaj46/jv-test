@@ -3,10 +3,25 @@
 
  Medium gray: #555555
 
- Dark gray: #111111
+ Dark gray: #333
+
+ Violet: #EE82EE
+
+ Off-White: #fbfbfb;
 */
+
 html, body {
     margin: 0; 
     padding: 0;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.violetBottom {
+    border-bottom: 2px solid #EE82EE;
+    padding-bottom: 10px;
 }
